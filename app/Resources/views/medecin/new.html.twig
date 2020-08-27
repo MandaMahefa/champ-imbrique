@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Creer un nouveau medecin</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input class="btn btn-success" type="submit" value="Enregistrer" />
+    {{ form_end(form) }}
+
+    <ul>
+            <a class="btn btn-primary" href="{{ path('medecin_index') }}">Back to the list</a>
+
+    </ul>
+{% endblock %}

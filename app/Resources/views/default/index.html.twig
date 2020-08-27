@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper" class=container"">
+        <div id="calendar" class="calendar" data-all-users="{{ list | json_encode }}"></div>
+
+
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}

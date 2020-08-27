@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Listes de tous les medecins</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+{#                <th>Id</th>#}
+                <th>Nom</th>
+                <th>Ville</th>
+                <th>Departement</th>
+                <th>Region</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for medecin in medecins %}
+            <tr>
+{#                <td><a href="{{ path('medecin_show', { 'id': medecin.id }) }}">{{ medecin.id }}</a></td>#}
+                <td>{{ medecin.nom }}</td>
+                <td>{{ medecin.ville.name }}</td>
+                <td>{{ medecin.ville.departement.name }}</td>
+                <td>{{ medecin.ville.departement.region.name }}</td>
+                <td>
+                   <a class="btn btn-success" href="{{ path('medecin_edit', { 'id': medecin.id }) }}">modifier</a>
+                   <a class="btn btn-danger" href="{{ path('medecin_delete', { 'id': medecin.id }) }}">supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+            <a class="btn btn-success" href="{{ path('medecin_new') }}">Creer un nouveau medecin</a>
+
+    </ul>
+{% endblock %}
